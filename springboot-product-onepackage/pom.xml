@@ -27,11 +27,15 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
-    <groupId>net.codebox</groupId>
-    <artifactId>javabean-tester</artifactId>
-    <version>1.0.0</version>
-</dependency>
-
+    		<groupId>net.codebox</groupId>
+    		<artifactId>javabean-tester</artifactId>
+    		<version>1.0.0</version>
+		</dependency>
+		<dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.8.13</version>
+		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
