@@ -1,4 +1,4 @@
-package com.main;
+package com.main.aspect;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
@@ -14,10 +14,10 @@ public class LoggingAspect {
 	
 	private Logger myLogger = Logger.getLogger(getClass().getName());
 	
-	@Pointcut("execution(* com.main.ProductController.*(..))")
+	@Pointcut("execution(* com.main.controller.ProductController.*(..))")
 	public void controllerPackage() {}
 
-	@Pointcut("execution(* com.main.ProductServiceImpl.*(..))")
+	@Pointcut("execution(* com.main.service.ProductServiceImpl.*(..))")
 	public void ServicePackage() {}
 	
 	@Pointcut("controllerPackage() || ServicePackage()")

@@ -1,6 +1,4 @@
-package com.main;
-
-import static org.junit.Assert.*;
+package com.main.service;
 
 import java.util.Optional;
 
@@ -10,7 +8,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.beans.factory.annotation.Autowired;
+
+import com.main.entity.Product;
+import com.main.repository.ProductRepository;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ProductServiceImplTest {
@@ -103,6 +103,6 @@ public class ProductServiceImplTest {
 			e.getMessage();
 		}
 	}
-		
-		
 }
+		
+		

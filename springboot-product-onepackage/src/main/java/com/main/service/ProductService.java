@@ -1,6 +1,8 @@
-package com.main;
+package com.main.service;
 
 import java.util.List;
+
+import com.main.entity.Product;
 
 
 public interface ProductService {

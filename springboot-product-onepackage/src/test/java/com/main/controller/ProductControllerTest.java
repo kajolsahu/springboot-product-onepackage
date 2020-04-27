@@ -1,13 +1,13 @@
-package com.main;
+package com.main.controller;
 
-import static org.junit.Assert.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.http.ResponseEntity;
+
+import com.main.entity.Product;
+import com.main.service.ProductService;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ProductControllerTest {
