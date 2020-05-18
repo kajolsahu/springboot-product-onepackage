@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.main.entity.Product;
-import com.main.exception.ResourceNotFoundException;
+import com.main.exception.ProductNotFoundException;
 import com.main.repository.ProductRepository;
 
 
@@ -32,14 +32,14 @@ public class ProductServiceImpl implements ProductService{
 		
 		if(productDb.isPresent()) {
 			Product productUpdate = productDb.get();
-			productUpdate.setId(product.getId());
+		//	productUpdate.setId(product.getId());
 			productUpdate.setName(product.getName());
 			productUpdate.setDescription(product.getDescription());
 			productUpdate.setPrice(product.getPrice());
 			productRepository.save(productUpdate);
 			return productUpdate;
 		}else {
-			throw new ResourceNotFoundException("Record not found with id : " + product.getId());
+			throw new ProductNotFoundException(product.getId());
 		}		
 	}
 
@@ -56,7 +56,7 @@ public class ProductServiceImpl implements ProductService{
 		if(productDb.isPresent()) {
 			return productDb.get();
 		}else {
-			throw new ResourceNotFoundException("Record not found with id : " + productId);
+			throw new ProductNotFoundException(productId);
 		}
 	}
 
@@ -67,7 +67,7 @@ public class ProductServiceImpl implements ProductService{
 		if(productDb.isPresent()) {
 			this.productRepository.delete(productDb.get());
 		}else {
-			throw new ResourceNotFoundException("Record not found with id : " + productId);
+			throw new ProductNotFoundException(productId);
 		}
 		
 	}

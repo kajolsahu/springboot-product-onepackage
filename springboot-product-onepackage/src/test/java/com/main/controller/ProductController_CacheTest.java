@@ -1,4 +1,4 @@
-package com.main.controller;
+/*package com.main.controller;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,10 +10,10 @@ import com.main.entity.Product;
 import com.main.service.ProductService;
 
 @RunWith(MockitoJUnitRunner.class)
-public class ProductControllerTest {
+public class ProductController_CacheTest {
 	
 	@InjectMocks
-	ProductController productController;
+	ProductController_Cache productController;
 	@Mock
 	ProductService productService;;
 
@@ -47,3 +47,4 @@ public class ProductControllerTest {
 	}
 
 }
+*/

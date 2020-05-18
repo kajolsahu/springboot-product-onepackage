@@ -6,13 +6,15 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
-import org.jboss.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Aspect
 @Component
 public class LoggingAspect {
 	
-	private Logger myLogger = Logger.getLogger(getClass().getName());
+
+	final static Logger myLogger = LoggerFactory.getLogger(LoggingAspect.class);
 	
 	@Pointcut("execution(* com.main.controller.ProductController.*(..))")
 	public void controllerPackage() {}
@@ -28,13 +30,13 @@ public class LoggingAspect {
 	public void before(JoinPoint theJoinPoint) {
 			
 		String theMethod = theJoinPoint.getSignature().toShortString();
-		myLogger.info("=====>> in @Before: calling method: " + theMethod);
+		myLogger.info("=====>> in @Before: calling method:{} " , theMethod);
 			
 		Object[] args = theJoinPoint.getArgs();
 			
 			for (Object tempArg : args) 
 			{
-				myLogger.info("=====>> argument: " + tempArg);
+				myLogger.info("=====>> argument:{} " ,tempArg);
 			}
 			
 		}
@@ -47,10 +49,10 @@ public class LoggingAspect {
 	
 		// display method we are returning from
 		String theMethod = theJoinPoint.getSignature().toShortString();
-		myLogger.info("=====>> in @AfterReturning: from method: " + theMethod);
+		myLogger.info("=====>> in @AfterReturning: from method:{} " , theMethod);
 				
 		// display data returned
-		myLogger.info("=====>> result: " + theResult);
+		myLogger.info("=====>> result:{} " , theResult);
 	
 	}
 			

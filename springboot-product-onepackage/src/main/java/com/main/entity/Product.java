@@ -1,5 +1,6 @@
 package com.main.entity;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -11,11 +12,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
 
 @Entity
 @Table(name = "products")
-public class Product {
+public class Product implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -53,6 +57,10 @@ public class Product {
 	}
 	public void setPrice(Float price) {
 		this.price = price;
+	}
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", description=" + description + ", price=" + price + "]";
 	}
 
 	
